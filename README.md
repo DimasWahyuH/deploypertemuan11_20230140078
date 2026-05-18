@@ -3,7 +3,7 @@ Login
 Register
 <img width="1919" height="983" alt="image" src="https://github.com/user-attachments/assets/8a41b0bd-7f84-4bb5-95a4-7fc7b5243dcf" />
 Home
-<img width="1919" height="983" alt="image" src="https://github.com/user-attachments/assets/55bd68ca-d9a3-4f2d-b778-ba26ff8a70fd" />
+<img width="1919" height="992" alt="Screenshot 2026-05-18 221110" src="https://github.com/user-attachments/assets/ace3e564-79ee-4de8-8536-a8fcbf9c22b9" />
 
 Ubuntu
 <img width="1876" height="411" alt="image" src="https://github.com/user-attachments/assets/35774b4f-bde2-49cc-a255-c939843683f2" />
