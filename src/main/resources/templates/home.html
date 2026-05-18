@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - ywdh home ajh</title>
+    <style>
+        /* Impor font Poppins dari Google Fonts biar cakep */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); /* Background gradient biru elegan */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            color: #333;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3); /* Efek bayangan biar kayak ngambang */
+            width: 350px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .card h1 {
+            margin-top: 0;
+            font-size: 28px;
+            font-weight: 600;
+            color: #1e3c72;
+            margin-bottom: 25px;
+        }
+
+        .info-box {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+            text-align: left;
+            border: 1px solid #e2e8f0;
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            border-bottom: 1px dashed #cbd5e1;
+            padding-bottom: 8px;
+        }
+
+        .info-item:last-child {
+            margin-bottom: 0;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .label {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .value {
+            color: #0f172a;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .btn-logout {
+            display: inline-block;
+            width: 100%;
+            padding: 14px;
+            background: #ef4444;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .btn-logout:hover {
+            background: #dc2626;
+            transform: translateY(-2px); /* Efek tombol naik dikit pas di-hover */
+            box-shadow: 0 5px 15px rgba(239, 68, 68, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h1>👋 Welcome Back!</h1>
+
+    <div class="info-box">
+        <div class="info-item">
+            <span class="label">Username</span>
+            <span class="value" th:text="${user.username}"></span>
+        </div>
+        <div class="info-item">
+            <span class="label">Nama</span>
+            <span class="value" th:text="${profile.nama}"></span>
+        </div>
+        <div class="info-item">
+            <span class="label">Alamat</span>
+            <span class="value" th:text="${profile.alamat}"></span>
+        </div>
+    </div>
+
+    <a class="btn-logout" th:href="@{/logout}">LOGOUT</a>
+</div>
+
+</body>
+</html>
