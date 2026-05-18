@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - yah login lah bebas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); /* Background gradient elegan, sama seperti halaman home */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+        }
+
+        .login-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3); /* Efek bayangan biar kelihatan modern */
+            width: 100%;
+            max-width: 400px; /* Batas lebar kartu agar tetap proporsional */
+            text-align: center;
+            backdrop-filter: blur(10px); /* Efek kaca buram di background */
+        }
+
+        .login-header h1 {
+            color: #1e3c72;
+            margin-bottom: 10px;
+            font-weight: 600;
+            font-size: 2rem;
+        }
+
+        .login-header p {
+            color: #64748b;
+            margin-bottom: 30px;
+            font-size: 0.9rem;
+        }
+
+        /* Styling untuk Pesan Error & Logout */
+        .alert {
+            padding: 12px 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+        }
+
+        .alert-error {
+            background-color: #fee2e2;
+            color: #b91c1c;
+            border: 1px solid #fecaca;
+        }
+
+        .alert-success {
+            background-color: #d1fae5;
+            color: #047857;
+            border: 1px solid #a7f3d0;
+        }
+
+        /* Styling Input Field */
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #1e3c72;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s;
+            background-color: #f8fafc;
+        }
+
+        .input-group input:focus {
+            border-color: #2a5298; /* Warna border pas diklik */
+            box-shadow: 0 0 8px rgba(42, 82, 152, 0.3);
+            outline: none;
+            background-color: #fff;
+        }
+
+        /* Styling Tombol Login */
+        .btn-login {
+            width: 100%;
+            padding: 15px;
+            background: #ef4444; /* Warna utama tombol */
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .btn-login:hover {
+            background: #dc2626; /* Warna hover tombol */
+            transform: translateY(-2px); /* Efek tombol naik dikit */
+            box-shadow: 0 5px 15px rgba(239, 68, 68, 0.4);
+        }
+
+        /* Styling Link Register */
+        .login-footer {
+            margin-top: 25px;
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        .link-register {
+            color: #ef4444;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .link-register:hover {
+            color: #dc2626;
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="login-card">
+    <div class="login-header">
+        <h1>Login</h1>
+        <p>Welcome Back! Please login to continue</p>
+    </div>
+
+    <div th:if="${param.error}" class="alert alert-error">
+        <span>Username atau Password salah</span>
+    </div>
+
+    <div th:if="${param.logout}" class="alert alert-success">
+        <span>Anda berhasil logout</span>
+    </div>
+
+    <form th:action="@{/login}" method="post">
+        <div class="input-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username" required>
+        </div>
+
+        <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        </div>
+
+        <button type="submit" class="btn-login">Login</button>
+    </form>
+
+    <div class="login-footer">
+        <p>Belum punya akun? <a th:href="@{/register}" class="link-register">Register Di Sini</a></p>
+    </div>
+</div>
+
+</body>
+</html>
